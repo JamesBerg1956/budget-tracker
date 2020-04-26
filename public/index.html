@@ -1,47 +1,101 @@
+<!--HTML 5 doctype-->
 <!DOCTYPE html>
+
+<!--START html tag-->
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="theme-color" content="#317EFB">
-  <link rel="shortcut icon" href="icons/icon-192x192.png" type="image/x-icon">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <!--START head tag-->
+  <head>
 
-  <title>Budget Tracker</title>
-</head>
-<body>
-  <div class="wrapper">
-    <div class="total">
-      <div class="total">Your total is: $<span id="total">0</span></div>
-    </div>
-
-    <div class="form">
-      <input type="text" id="t-name" placeholder="Name of transaction" />
-      <input type="number" min="0" id="t-amount" placeholder="Transaction amount" />
-      <button id="add-btn"><i class="fa fa-plus buttons"></i> Add Funds</button>
-      <button id="sub-btn"><i class="fa fa-minus"></i> Subtract Funds</button>
-      <p class="error"></p>
-    </div>
-
-    <div class="transactions">
-      <table>
-        <thead>
-          <th>Transaction</th>
-          <th>Amount</th>
-        </thead>
-        <tbody id="tbody">
-          
-        </tbody>
-      </table>
-    </div>
+    <!--START meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#317EFB">
+    <!--END meta tags-->
     
-    <canvas id="myChart"></canvas>
-  </div>
+    <!--browser tab icon-->
+    <link rel="shortcut icon" href="icons/icon-192x192.png" type="image/x-icon">
+    <!--Bootstrap CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom stylesheet-->
+    <link rel="stylesheet" href="styles.css">
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script src="index.js"></script>
-</body>
+    <!--title tag - browser tab label-->
+    <title>Budget Tracker</title>
+
+  </head>
+  <!--END head tag-->
+
+  <!--START body tag-->
+  <body>
+
+    <!--START div.wrapper-->
+    <div class="wrapper">
+
+      <!--START div.total-->
+      <div class="total">
+        <!--Shows total of all transactions-->
+        <div class="total">Your total is: $<span id="total">0</span></div>
+      </div>
+      <!--END div.total-->
+
+      <!--START div.form-->
+      <div class="form">
+
+        <!--input.t-name - db.Transaction.name-->
+        <input type="text" id="t-name" placeholder="Name of transaction" />
+
+        <!--input.t-amount - db.Transaction.value-->
+        <input type="number" min="0" id="t-amount" placeholder="Transaction amount" />
+
+        <!--button.add-btn - calls sendTransaction(true)-->
+        <button id="add-btn"><i class="fa fa-plus buttons"></i> Add Funds</button>
+
+        <!--button.sub-btn - calls sendTransaction(false)-->
+        <button id="sub-btn"><i class="fa fa-minus"></i> Subtract Funds</button>
+
+        <!--p.error - appears with message in case of error-->
+        <p class="error"></p>
+
+      </div>
+      <!--END div.form-->
+
+      <!--START div.transactions-->
+      <div class="transactions">
+        <!--START table-->
+        <table>
+          <!--START thead-->
+          <thead>
+            <!--START th - table headers-->
+            <th>Transaction</th>
+            <th>Amount</th>
+            <!--END th - table headers-->
+          </thead>
+          <!--END thead-->
+          <!--START tbody.tbody - dynamically add rows per transaction-->
+          <tbody id="tbody">
+            
+          </tbody>
+          <!--END tbody.tbody - dynamically add rows per transaction-->
+        </table>
+        <!--END table-->
+      </div>
+      <!--END div.transactions-->
+      
+      <!--HTML5 canvas element - plots transactions over time-->
+      <canvas id="myChart"></canvas>
+
+    </div>
+    <!--END div.wrapper-->
+
+    <!--CDN for chart.js - runs .myChart-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <!--custom javascript-->
+    <script src="index.js"></script>
+
+  </body>
+  <!--END body tag-->
+
 </html>
+<!--END html tag-->
