@@ -95,6 +95,19 @@
     <!--custom javascript-->
     <script src="index.js"></script>
 
+    <!--START load service-worker.js-->
+    <script>
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", () => {
+            navigator.serviceWorker.register("service-worker.js")
+              .then(reg => {
+                console.log("We found your service worker file!", reg);
+              });
+          });
+        }
+      </script>
+      <!--END load service-worker.js-->
+      
   </body>
   <!--END body tag-->
 
